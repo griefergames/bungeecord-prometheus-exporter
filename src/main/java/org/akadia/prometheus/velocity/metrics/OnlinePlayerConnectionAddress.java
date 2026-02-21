@@ -23,7 +23,7 @@ public class OnlinePlayerConnectionAddress extends GauageMetric {
         proxy.getAllPlayers().forEach(player -> {
             Optional<InetSocketAddress> virtualHost = player.getVirtualHost();
 
-            String address = virtualHost.isPresent() ? virtualHost.get().getHostName() : "unknown";
+            String address = virtualHost.isPresent() ? virtualHost.get().getHostName().toLowerCase() : "unknown";
             if(!playerAddresses.containsKey(address)) {
                 playerAddresses.put(address, new HashSet<>());
             }
